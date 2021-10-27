@@ -1,4 +1,4 @@
-# reactivity
+# vueproject
 
 ## Project setup
 ```
