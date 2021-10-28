@@ -24,10 +24,13 @@ export default {
         image: require(nike.png)
       },{
         name: "under armor",
-        image: require(under_armor.png)
+        image: require(under_armor.png),
+      },{
+        name: "supreeme",
+        image: require(supreeme.png),
       }]
-    };
-},
+};
+  },
 };
 </script>
 
