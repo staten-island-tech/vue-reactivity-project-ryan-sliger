@@ -6,10 +6,11 @@
     <div class="button-container">
       <button class="nike" alt="btn">Nike</button>
       <button class="UA" alt="btn">under_armor</button>
-      <button class="Supreeme" alt="btn">Supreeme</button>
+      <button class="Supreeme" alt="btn">Supreme</button>
     </div>
-    <div>
-      <img :src="image">
+    <div class="image_cont">
+      <img :src="image" class="shirt" >
+      <img :src="imageL" class="logo">
     </div>
     <div>
       <h2 class="logo-name">{{name}}</h2>
@@ -29,15 +30,16 @@ export default {
 
     return {
       image: require("./assets/blank-tshirt.jpg"),
+      imageL: require("./assets/Logo.png"),
       logo: [{
         name: "nike",
-        image: require("./assets/nike.png")
+        imageL: require("./assets/nike.png")
       },{
         name: "under armor",
-        image: require("./assets/under-armor.png"),
+        imageL: require("./assets/under-armor.png"),
       },{
         name: "supreeme",
-        image: require("./assets/supreeme.png"),
+        imageL: require("./assets/supreeme.png"),
       }]
 };
   },
@@ -53,7 +55,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #502c2c;
-  margin-top: 30px;
 }
 
 .button-container{
@@ -63,4 +64,16 @@ export default {
 .UA{
   margin: 2rem;
 }
+.shirt{
+  z-index: 2;
+  position: relative;
+}
+.logo{
+  height: 8rem;
+  width: 8rem;
+  z-index: 3;
+  position: relative;
+}
+
+
 </style>
