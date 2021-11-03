@@ -4,16 +4,17 @@
       Welcome To T-Shirt Customizer
     </h1>
     <div class="button-container">
-      <button class="nike" alt="btn">Nike</button>
-      <button class="UA" alt="btn">under_armor</button>
-      <button class="Supreeme" alt="btn">Supreme</button>
+      <p>Pick a Logo</p>
     </div>
+
+    <div class="btn" v-for="logo in logos" v-bind:key="logo.name">
+      <button v-on:click="updateLogo(logo.logoImageL)">{{ logo.name }}</button>
+    </div>
+
+
     <div class="image_cont">
       <img :src="image" class="shirt" >
       <img :src="imageL" class="logo">
-    </div>
-    <div>
-      <h2 class="logo-name">{{name}}</h2>
     </div>
   
   </div>
@@ -31,34 +32,41 @@ export default {
     return {
       image: require("./assets/blank-tshirt.jpg"),
       imageL: require("./assets/Logo.png"),
-      logo: [{
+      logos: [{
         name: "nike",
-        imageL: require("./assets/nike.png")
+        logoImageL: require("./assets/nike.png")
       },{
         name: "under armor",
-        imageL: require("./assets/under-armor.png"),
+        logoImageL: require("./assets/under-armor.png"),
       },{
         name: "supreeme",
-        imageL: require("./assets/supreeme.png"),
+        logoImageL: require("./assets/supreeme.png"),
       }]
 };
-  },
+  },methods:{
+  updateLogo(logoImageL) {
+    this.imageL = logoImageL
+  }}
 };
+
+
 </script>
 
 <style>
 
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Comic Sans MS;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #502c2c;
+  color: brown;
 }
 
-.button-container{
+.btn{
   padding: 1rem;
+  display: flex;
+  flex-direction: row;
 }
 
 .UA{
@@ -66,13 +74,19 @@ export default {
 }
 .shirt{
   z-index: 2;
-  position: relative;
+  position: absolute;
+  margin: auto;
+  left: 37.5%;
+  top: 20%;
+
 }
 .logo{
   height: 8rem;
   width: 8rem;
   z-index: 3;
-  position: relative;
+  position: absolute;
+  left: 45%;
+  top: 35%;
 }
 
 
